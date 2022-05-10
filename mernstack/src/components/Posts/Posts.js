@@ -19,14 +19,15 @@ const Posts = () => {
                         <Container
                             sx={{
                                 display: "flex",
-                                gap: 2,
+                                gap: 1,
                                 alignItems: "center",
                                 marginLeft: -3,
-                                marginBottom: 3
+                                marginBottom: 3,
+                                color: "GrayText"
                             }}
                         >
                             <Avatar variant="" />
-                            <Typography variant="h6">MichaelScarn</Typography>
+                            <Typography variant="h7">@MichaelScarn</Typography>
                         </Container>
                         <Typography variant="h5">Post Header</Typography>
                         <Typography variant="subtitle1" color="text.secondary">
