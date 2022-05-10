@@ -24,7 +24,6 @@ const FeaturedPost = () => {
                 backgroundImage: `url(${post.image})`,
             }}
         >
-            {/* Increase the priority of the hero background image */}
             {
                 <img
                     style={{ display: "none" }}
