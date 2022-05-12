@@ -24,6 +24,11 @@
   color: white;
 }
 
+.SideNav{
+  height: 100%;
+  background-color: beige;
+}
+
 .App-link {
   color: #61dafb;
 }
