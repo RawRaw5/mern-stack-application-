@@ -5,7 +5,9 @@ import 'dotenv/config';
 
 // EXPRESS SETTINGS
 const app = express();
+
 app.use(express.json());
+
 
 //PORT CONFIGURATION
 const PORT = process.env.PORT;
@@ -19,6 +21,7 @@ mongoose.connect(
     }
 );
 
+
 //ROUTES
 import postController from './routes/posts.js'
 app.use("/posts", postController);
@@ -27,3 +30,4 @@ app.use("/posts", postController);
 app.listen(PORT, () => {
     console.log("Server is running on port:", PORT);
 });
+
