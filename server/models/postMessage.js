@@ -1,11 +1,18 @@
 const mongoose = require("mongoose");
 
 const postSchema = mongoose.Schema({
-    title: String,
-    message: String,
-    creator: String,
-    tags: [String],
-    selectedFile: String,
+    message: {
+        type: String,
+        // required: true,
+    },
+    creator: {
+        type: String,
+        default: "Anonymous",
+    },
+    tags: {
+        type: [String],
+        required: true,
+    },
     likeCount: {
         type: Number,
         default: 0,
@@ -16,6 +23,4 @@ const postSchema = mongoose.Schema({
     },
 });
 
-const PostMessage = mongoose.model('PostMessage', postSchema);
-
-module.exports = PostMessage
+module.exports = mongoose.model("PostMessage", postSchema);
