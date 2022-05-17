@@ -1,19 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import CreatePost from './create_post';
 import {BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import SideNav from './sideNav';
 
 
-function App() {
+
+function App(props, state) {
   return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route path='/' element={<CreatePost />}>
-          </Route>
-        </Routes>
+      <div className="App"
+       <CreatePost />
       </div>
-    </Router>
+    <div className="container">
+      <SideNav name='home'/>
+    </div>
+
   );
 }
 

@@ -1,1 +1,32 @@
 
+
+.App {
+  min-height: 100vh;
+  text-align: center;
+}
+.App-header {
+  height: 10vh;
+  display: flex;
+  background-color: #282c34;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.App-body {
+  width: 60%;
+  margin: 20px auto;
+}
+.SideNav{
+  height: 100%;
+  background-color: beige;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left:0;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
