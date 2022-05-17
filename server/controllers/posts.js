@@ -36,7 +36,7 @@ export const newPost = async (req, res) => {
         console.log("Post was created");
     } catch (error) {
         res.status(404).json(error.message);
-        console.log("Post was not created");
+        console.log("Post was not created!");
     }
 };
 
