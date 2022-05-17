@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import SideNav from './sideNav';
+import React, {useState} from 'react';
 
 function App(props, state) {
   return (

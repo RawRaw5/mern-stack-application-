@@ -1,5 +1,7 @@
 import React from 'react'
+
 const SideNav = (props) => {
+    style={width: props.width}
     return(
         <div className="sideNav">
             <a href="#home">Home</a>
