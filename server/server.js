@@ -1,7 +1,7 @@
 // DEPENDENCIES
-import express from 'express'
-import mongoose from 'mongoose'
-import 'dotenv/config';
+import express from "express";
+import mongoose from "mongoose";
+import "dotenv/config";
 
 // EXPRESS SETTINGS
 const app = express();
@@ -20,8 +20,13 @@ mongoose.connect(
 );
 
 //ROUTES
-import postController from './routes/posts.js'
+import postController from "./routes/posts.js";
 app.use("/posts", postController);
+
+app.post("/posts", function (req, res) {
+    // Without `express.json()`, `req.body` is undefined.
+    console.log(`${req.body}`);
+});
 
 //APP PORT HOST
 app.listen(PORT, () => {
