@@ -1,11 +1,6 @@
 const router = require("express").Router();
 const db = require("../models");
 
-// async function wait(ms) {
-//     return new Promise((resolve, reject) => {
-//         setTimeout(resolve, ms);
-//     });
-// }
 
 router.get("/", (req, res) => {
     // if (req.body.message === "") {
@@ -20,13 +15,6 @@ router.get("/", (req, res) => {
             console.log(error, "an error");
         });
 });
-
-// if (condition) {
-    
-// } else {
-    
-// }
-
 
 //post 
 router.post("/", (req, res) => {
