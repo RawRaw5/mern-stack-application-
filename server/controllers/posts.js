@@ -1,67 +1,53 @@
-const router = require("express").Router();
-const db = require("../models");
+import express from "express";
+import mongoose from "mongoose";
 
+import Post from "../models/post.model.js";
 
-router.get("/", (req, res) => {
-    // if (req.body.message === "") {
-    //     req
-    // }
-    db.PostMessage.find()
-        .then((postMessage) => {
-            res.render("index", { postMessage });
-            console.log(res)
-        })
-        .catch((error) => {
-            console.log(error, "an error");
-        });
-});
+const router = express.Router();
 
-//post 
-router.post("/", (req, res) => {
-    db.PostMessage.create(req.body)
-        .then(() => {
-            console.log('post was created!')
-            res.render('success')
-        })
-        .catch((error) => {
-            console.log('an error occurred', error)
-        });
-});
+// GET POSTS
+export const getPosts = async (req, res) => {
+    try {
+        const posMessages = await Post.find();
+        res.status(200).json(posMessages);
+    } catch (error) {
+        res.status(404).json(error.message);
+    }
+};
 
-// //CREATE A POST
-// const createPost = async (req, res) => {
-//     const post = req.body;
-//     const newPost = new PostMessage(post);
-//     try {
-//         console.log("hello qwolrd");
-//         await newPost.save();
-//         res.status(201).json(newPost);
-//     } catch (error) {
-//         res.status(409).json({ message: error.message });
-//     }
-// };
+// GET SINGLE POST
+export const getPost = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const post = await Post.findById(id);
+        res.status(200).json(post);
+    } catch (error) {
+        res.status(404).json(error.message);
+    }
+};
 
-//GET POSTS
-// const getPosts = async (req, res) => {
-//     try {
-//         const postMessages = await PostMessage.find();
-//         console.log(postMessages);
-//         res.status(200).json(postMessages);
-//     } catch (error) {
-//         res.status(404).json({ message: error.message });
-//     }
-// };
+// CREATE NEW POST
+export const newPost = async (req, res) => {
+    const { title, body, author } = req.body;
+    const newPostMessage = new Post({ title, body, author });
+    try {
+        await newPostMessage.save();
+        res.status(200).json(newPostMessage);
+        console.log("post was created");
+    } catch (error) {
+        res.status(404).json(error.message);
+        console.log("post not created");
+    }
+};
 
-//GET POSTS
-// const getPosts = async (req, res) => {
-//     try {
-//         console.log("HELLO WORLD");
-//         res.render("index");
-//     } catch (error) {
-//         console.log("hi", error);
-//     }
-// };
+//DELETE POST
+export const deletePost = async (req, res) => {
+    const { id } = req.params;
 
-// module.exports = getPosts;
-// module.exports = createPost;
-module.exports = router;
+    if (!mongoose.Types.ObjectId.isValid(id))
+        return res.status(404).send(`Could not delete post ${id}`);
+    await Post.findByIdAndRemove(id);
+    res.json("post was deleted");
+};
+
+export default router;

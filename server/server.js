@@ -1,28 +1,29 @@
 // DEPENDENCIES
-const express = require("express");
-// const mongoose = require("mongoose");
+import express from 'express'
+import mongoose from 'mongoose'
+import 'dotenv/config';
 
-//CONFIGURATION
-require("dotenv").config();
-const PORT = process.env.PORT;
+// EXPRESS SETTINGS
 const app = express();
+app.use(express.json());
 
-app.set('views', __dirname + '/views')
-app.set('view engine', 'jsx')
-app.engine('jsx', require('express-react-views').createEngine())
+//PORT CONFIGURATION
+const PORT = process.env.PORT;
 
-//MONGO CONNECTION
-
-
-//MIDDLEWARE
-app.use(express.static("public"));
-app.use(express.urlencoded({ extended: true }));
+// MONGO CONFIGURATION
+mongoose.connect(
+    process.env.MONGO_URI,
+    { useNewUrlParser: true, useUnifiedTopology: true },
+    () => {
+        console.log("connected to mongo: ", process.env.MONGO_URI);
+    }
+);
 
 //ROUTES
-const postController = require('./routes/posts.js')
-app.use('/posts', postController)
+import postController from './routes/posts.js'
+app.use("/posts", postController);
 
-//LISTEN
+//APP PORT HOST
 app.listen(PORT, () => {
     console.log("Server is running on port:", PORT);
 });
