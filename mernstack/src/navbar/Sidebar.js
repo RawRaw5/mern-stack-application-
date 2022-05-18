@@ -21,9 +21,7 @@ function Sidebar() {
                     <div id="title">{val.title}</div>
                 </li>
             )
-        })}</div>;
-        </ul>
-    )
-}
-
+                })}</ul>
+        </div>
+    )}
 export default Sidebar
