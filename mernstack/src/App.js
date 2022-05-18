@@ -1,14 +1,12 @@
 import React from 'react';
 import './App.css';
-import SideNav from './sideNav';
-import React, {useState} from 'react';
+import Sidebar from "./navbar/Sidebar"; 
 
-function App(props, state) {
-  return (
-    <div className="container">
-      <SideNav name='home'/>
-    </div>
-  );
+function App(){
+  return
+    <div className="App">
+      <Sidebar />
+    </div>;
 }
 
 export default App;
