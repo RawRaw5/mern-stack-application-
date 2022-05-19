@@ -9,7 +9,7 @@ const postSchema = new Schema({
     },
     author: {
         type: String,
-        required: true,
+        default: "Anonymous"
     },
     likeCount: {
         type: Number,
