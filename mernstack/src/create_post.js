@@ -29,9 +29,9 @@ async function postData(url = '', data = {}) {
 
 function CreatePost() {
 
-    const [title, setTitle] = useState('')
-    const [body, setBody] = useState('')
-    const [author, setAuthor] = useState('')
+    const [title, setTitle] = useState(null)
+    const [body, setBody] = useState(null)
+    const [author, setAuthor] = useState(null)
 
 
     const handleSubmit = event => {
@@ -39,7 +39,7 @@ function CreatePost() {
         const postDetails = {
            title : title,
            body : body,
-           author : author 
+           author : author || "Anonymous" 
         }
         console.log(JSON.stringify(postDetails))
         postData('https://mernstack-application.herokuapp.com/posts/',  postDetails )
