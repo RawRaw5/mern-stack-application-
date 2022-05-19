@@ -64,7 +64,13 @@ export const deletePost = async (req, res) => {
 export const likePost = async (req, res) => {
     const { id } = req.params;
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(``);
-    const likedPost = await Post.findById(id);
+    const post = await Post.findById(id);
+    const likedPost = await Post.findByIdAndUpdate(
+        id,
+        { likecount: post.likeCount + 1 },
+        { new: true }
+    );
+    res.json(likedPost);
     console.log("Post was liked");
 };
 
