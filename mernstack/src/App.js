@@ -1,22 +1,16 @@
 import React from 'react';
 import './App.css';
 import CreatePost from './create_post';
-import SideNav from './sideNav';
+import Sidebar from './navbar/Sidebar';
 
 
 
 function App() {
-  return (
-    <div>
+  return
       <div className="App">
-    <CreatePost />   
-      </div>
-      <div>
-        <SideNav />
-      </div>
-      </div>
-    
-  );
+        <CreatePost />   
+        <Sidebar />
+      </div>;
 }
 
 export default App;
