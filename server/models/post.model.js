@@ -1,15 +1,15 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const postSchema = new Schema({
-    title: { type: "string",required: true, minLength: 3 },
+    title: { type: "string", required: true, minLength: 3 },
     body: {
         type: String,
         required: true,
     },
     author: {
         type: String,
-        required: true,
+        default: "Anonymous",
     },
     likeCount: {
         type: Number,
@@ -22,6 +22,10 @@ const postSchema = new Schema({
     date: {
         type: Date,
         default: new Date(),
+    },
+    sport: {
+        type: String,
+        required: true,
     },
 });
 
