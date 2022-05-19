@@ -1,6 +1,7 @@
 .App {
     height: 100vh;
     width: 100vw;
+    display: flex;
   }
   
   body{
@@ -29,6 +30,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   }
   
@@ -50,3 +52,15 @@
   .row #title{
     flex: 70%;
   }
+
+  .createPost {
+    flex:1;
+    margin: 20px;
+  } 
+
+   /* .sideBar{
+    flex: 1;
+    
+  } */
+
+  

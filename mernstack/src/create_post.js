@@ -22,10 +22,12 @@ function CreatePost() {
             <Card.Header as="h5">Create Post</Card.Header>
             <Card.Body>
                 <form onSubmit={handleSubmit}>
-                <input id='text-box' type='text' placeholder="What's on your mind?"/>
-                <Card.Text>-Anonymous</Card.Text>
+                    <input id='text-box' type='text' placeholder="What's on your mind?"/>
+                    <Card.Text>-Anonymous</Card.Text>
                 </form>
-                <Button method= "POST" action= {`/?_method=POST`} onClick={handleSubmit} variant="primary">Post</Button>
+                <form method= "POST" action= {`/?_method=POST`}>
+                    <Button onClick={handleSubmit} variant="primary">Post</Button>
+                </form>
             </Card.Body>
             </Card>
             
