@@ -2,10 +2,12 @@
 import express from "express";
 import mongoose from "mongoose";
 import "dotenv/config";
+import cors from "cors";
 
 // EXPRESS SETTINGS
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 //PORT CONFIGURATION
 const PORT = process.env.PORT;
@@ -22,7 +24,6 @@ mongoose.connect(
 //ROUTES
 import postController from "./routes/posts.js";
 app.use("/posts", postController);
-
 
 //APP PORT HOST
 app.listen(PORT, () => {

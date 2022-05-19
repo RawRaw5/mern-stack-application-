@@ -60,4 +60,46 @@ export const deletePost = async (req, res) => {
     res.json("Post was deleted");
 };
 
+// LIKE POST
+export const likePost = async (req, res) => {
+    const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(``);
+
+    const post = await Post.findById(id);
+
+    const likedPost = await PostMessage.findByIdAndUpdate(
+        id,
+
+        { likeCount: post.likeCount + 1 },
+
+        { new: true }
+    );
+
+    res.json(likedPost);
+
+    console.log("Post was liked");
+};
+
+// DISLIKE POST
+export const dislikePost = async (req, res) => {
+    const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(``);
+
+    const post = await Post.findById(id);
+
+    const dislikePost = await PostMessage.findByIdAndUpdate(
+        id,
+
+        { dislikeCount: post.dislikeCount + 1 },
+
+        { new: true }
+    );
+
+    res.json(dislikePost);
+
+    console.log("Post was liked");
+};
+
 export default router;
