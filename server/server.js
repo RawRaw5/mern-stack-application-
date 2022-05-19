@@ -1,11 +1,14 @@
 // DEPENDENCIES
 import express from "express";
 import mongoose from "mongoose";
-import "dotenv/config";
+import cors from "cors";
+import bodyParser from "body-parser";
 
 // EXPRESS SETTINGS
 const app = express();
 app.use(express.json());
+app.use(cors());
+app.use(bodyParser.json());
 
 //PORT CONFIGURATION
 const PORT = process.env.PORT;
