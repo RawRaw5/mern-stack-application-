@@ -51,13 +51,21 @@ export const updatePost = async (req, res) => {
     res.json(updatedPost);
 };
 
-//DELETE POST
+// DELETE POST
 export const deletePost = async (req, res) => {
     const { id } = req.params;
     if (!mongoose.Types.ObjectId.isValid(id))
         return res.status(404).send(`Could not delete post ${id}`);
     await Post.findByIdAndRemove(id);
     res.json("Post was deleted");
+};
+
+// LIKE POST
+export const likePost = async (req, res) => {
+    const { id } = req.params;
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(``);
+    const likedPost = await Post.findById(id);
+    console.log("Post was liked");
 };
 
 export default router;
