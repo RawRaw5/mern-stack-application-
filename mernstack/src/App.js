@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import CreatePost from './create_post';
-import SideNav from './navbar/Sidebar';
+import Sidebar from './navbar/Sidebar';
 
 
 
