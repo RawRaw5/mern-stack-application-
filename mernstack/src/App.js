@@ -10,12 +10,12 @@ function App() {
             <div className="sideBar">
                 <Sidebar />
             </div>
-			<div>
-				<DisplayPosts />
-			</div>
-            <div className="createPost">
-                <CreatePost />
+            <div>
+                <DisplayPosts />
             </div>
+            {/* <div className="createPost">
+                <CreatePost />
+            </div> */}
         </div>
     );
 }
