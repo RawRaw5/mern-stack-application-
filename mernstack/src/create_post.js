@@ -36,8 +36,7 @@ function CreatePost() {
 
     const handleSubmit = event => {
         event.preventDefault()
-        const postDetails = {
-           title : title,
+        const postDetails = { title : title,
            body : body,
            author : author || "Anonymous" 
         }
@@ -62,12 +61,6 @@ function CreatePost() {
                     <input type='text' placeholder="Title"onChange={e => setTitle(e.target.value)} />
                     <input id='text-box' type='text' placeholder="What's on your mind?" onChange={e => setBody(e.target.value)}/>
                     <input type='text' placeholder='Name' onChange={e => setAuthor(e.target.value)}/>
-                    <div className='sportBox'>
-                      <input type='checkbox' id='Basketball' name='Baseketball' value='Basketball'></input>
-                      <label for='Basketball'>Basketball</label><br></br>
-                      <input type='checkbox' id='Soccer' name='Soccer' value='Soccer'></input>
-                      <label for='Basketball'>Soccer</label><br></br>
-                    </div>
                 </form>
                 <form method= "POST" action= {`/?_method=POST`}>
                     <Button onClick={handleSubmit} variant="primary">Post</Button>

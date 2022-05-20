@@ -53,13 +53,9 @@ body{
   flex: 80%;
 }
 
-/* .createPost {
+.createPost {
   flex:1;
   margin: 20px;
   height: 1000px;
-} */
-
-.sportBox {
-  Display: flex;
-  margin: 5px;
 }
+
