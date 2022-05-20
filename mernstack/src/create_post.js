@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
 
 // Example POST method implementation:
 async function postData(url = '', data = {}) {
@@ -36,8 +37,7 @@ function CreatePost() {
 
     const handleSubmit = event => {
         event.preventDefault()
-        const postDetails = {
-           title : title,
+        const postDetails = { title : title,
            body : body,
            author : author || "Anonymous" 
         }
@@ -54,29 +54,51 @@ function CreatePost() {
     }
 
   return (
-      <div>
-          <Card style={{ width: '20rem'}}>
-            <Card.Header as="h5">Create Post</Card.Header>
-            <Card.Body>
-                <form onSubmit={handleSubmit}>
-                    <input type='text' placeholder="Title"onChange={e => setTitle(e.target.value)} />
-                    <input id='text-box' type='text' placeholder="What's on your mind?" onChange={e => setBody(e.target.value)}/>
-                    <input type='text' placeholder='Name' onChange={e => setAuthor(e.target.value)}/>
-                    <div className='sportBox'>
-                      <input type='checkbox' id='Basketball' name='Baseketball' value='Basketball'></input>
-                      <label for='Basketball'>Basketball</label><br></br>
-                      <input type='checkbox' id='Soccer' name='Soccer' value='Soccer'></input>
-                      <label for='Basketball'>Soccer</label><br></br>
-                    </div>
-                </form>
-                <form method= "POST" action= {`/?_method=POST`}>
-                    <Button onClick={handleSubmit} variant="primary">Post</Button>
-                </form>
-            </Card.Body>
-            </Card>
-            
-      </div>
-  )
+    <div>
+      <Card style={{ width: "20rem" }}>
+        <Card.Header as="h5">Create Post</Card.Header>
+        <Card.Body>
+          <Form>
+            <Form.Group className="mb-3">
+              <Form.Label>Title</Form.Label>
+              <Form.Control type="text" />
+              <Form.Text>Please enter a title for your post.</Form.Text>
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Body</Form.Label>
+              <Form.Control type="text" />
+              <Form.Text>Write your post content here...</Form.Text>
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+              <Form.Check type="checkbox" label="Basketball" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+              <Form.Check type="checkbox" label="Soccer" />
+            </Form.Group>
+            <Button className="primary" type="submit">
+              Submit Post
+            </Button>
+          </Form>
+        </Card.Body>
+      </Card>
+    </div>
+  );
 }
 
-export default CreatePost;
+export default CreatePost; 
+
+
+{/* <form onSubmit={handleSubmit}>
+<input type='text' placeholder="Title"onChange={e => setTitle(e.target.value)} />
+<input id='text-box' type='text' placeholder="What's on your mind?" onChange={e => setBody(e.target.value)}/>
+<input type='text' placeholder='Name' onChange={e => setAuthor(e.target.value)}/>
+<div className='sportBox'>
+  <input type='checkbox' id='Basketball' name='Baseketball' value='Basketball'></input>
+  <label for='Basketball'>Basketball</label><br></br>
+  <input type='checkbox' id='Soccer' name='Soccer' value='Soccer'></input>
+  <label for='Basketball'>Soccer</label><br></br>
+</div>
+</form>
+<form method= "POST" action= {`/?_method=POST`}>
+<Button onClick={handleSubmit} variant="primary">Post</Button>
+</form> */}
