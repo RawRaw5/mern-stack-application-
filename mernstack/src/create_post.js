@@ -41,13 +41,8 @@ function CreatePost() {
             "https://mernstack-application.herokuapp.com/posts/",
             postDetails
         ).then((data) => {
-            console.log(data); // JSON data parsed by `data.json()` call
+            console.log(data);
         });
-
-        // var myInput = document.getElementById('text-box').value
-        // console.log("test", myInput)
-        // alert(JSON.stringify(myInput))
-        //this returns the input as JSON in an alert
     };
 
     return (
@@ -55,17 +50,32 @@ function CreatePost() {
             <Card style={{ width: "20rem" }}>
                 <Card.Header as="h5">Create Post</Card.Header>
                 <Card.Body>
-                    <Form>
+                    <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3">
                             <Form.Label>Title</Form.Label>
-                            <Form.Control type="text" />
+                            <Form.Control
+                                type="text form-control"
+                                onChange={(e) => setTitle(e.target.value)}
+                            />
                             <Form.Text>
                                 Please enter a title for your post.
                             </Form.Text>
                         </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Author</Form.Label>
+                            <Form.Control
+                                type="text="
+                                placeholder="Your name"
+                                onChange={(e) => setAuthor(e.target.value)}
+                            />
+                        </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label>Body</Form.Label>
-                            <Form.Control type="text" />
+                            <Form.Control
+                                type="text form-control"
+                                onChange={(e) => setBody(e.target.value)}
+                                placeholder="What are your thoughts?"
+                            />
                             <Form.Text>
                                 Write your post content here...
                             </Form.Text>
@@ -74,15 +84,23 @@ function CreatePost() {
                             className="mb-3"
                             controlId="formBasicCheckbox"
                         >
-                            <Form.Check type="checkbox" label="Basketball" />
+                            <Form.Check
+                                type="checkbox"
+                                label="Basketball"
+                                value="Basketball"
+                            />
                         </Form.Group>
                         <Form.Group
                             className="mb-3"
                             controlId="formBasicCheckbox"
                         >
-                            <Form.Check type="checkbox" label="Soccer" />
+                            <Form.Check
+                                type="checkbox"
+                                label="Soccer"
+                                value="Soccer"
+                            />
                         </Form.Group>
-                        <Button className="primary" type="submit">
+                        <Button className="btn-primary btn-sm" type="submit">
                             Submit Post
                         </Button>
                     </Form>
