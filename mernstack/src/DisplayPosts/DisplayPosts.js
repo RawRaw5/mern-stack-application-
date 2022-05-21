@@ -9,16 +9,18 @@ import Controls from "./Controls";
 
 const DisplayPosts = () => {
     const [data, setData] = useState([]);
-
-    useEffect(() => {
+    const pullData = () => {
         axios("https://mernstack-application.herokuapp.com/posts")
-            .then((response) => {
-                setData(response.data);
-                // console.log(response.data);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+        .then((response) => {
+            setData(response.data);
+            // console.log(response.data);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    }
+    useEffect(() => {
+      pullData() 
     }, []);
 
     return (
@@ -35,7 +37,7 @@ const DisplayPosts = () => {
                                     {da.author}
                                 </Card.Subtitle>
                                 <Card.Text>{da.body}</Card.Text>
-                                <Controls />
+                                <Controls postId={da._id} pullFunction={pullData}/>
                             </Card.Body>
                         </Card>
                     </Col>
