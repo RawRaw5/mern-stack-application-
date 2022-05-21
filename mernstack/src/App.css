@@ -46,7 +46,8 @@ body {
 .row #icon {
 	flex: 20%;
 	display: grid;
-	place-items: center;
+	/* place-items: center; */
+	color: black;
 }
 
 .row #title {
