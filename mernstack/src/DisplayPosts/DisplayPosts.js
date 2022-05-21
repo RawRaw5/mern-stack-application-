@@ -39,6 +39,7 @@ const DisplayPosts = (props) => {
                                     {da.author}
                                 </Card.Subtitle>
                                 <Card.Text>{da.body}</Card.Text>
+                                <Card.Text>{da.likeCount} Likes</Card.Text>
                                 <Controls postId={da._id} pullFunction={pullData}/>
                             </Card.Body>
                         </Card>

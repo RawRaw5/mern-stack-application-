@@ -21,6 +21,7 @@ const Controls = (props) => {
         try {
             const res = await axios.patch('https://mernstack-application.herokuapp.com/posts/' + id + '/like')
             console.log("Item successfully liked")
+            window.location.reload(false)
         } catch (error) {
             // alert(error)
         }
