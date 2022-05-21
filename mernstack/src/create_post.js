@@ -47,7 +47,7 @@ function CreatePost() {
 
     return (
         <div>
-            <Card style={{ width: "20rem" }}>
+            <Card className='m-4' style={{ width: "30rem" }}>
                 <Card.Header as="h5">Create Post</Card.Header>
                 <Card.Body>
                     <Form onSubmit={handleSubmit}>
@@ -104,47 +104,6 @@ function CreatePost() {
                             Submit Post
                         </Button>
                     </Form>
-                    {/* <div className="card-form">
-                        <form onSubmit={handleSubmit}>
-                            <input
-                                type="text"
-                                placeholder="Title"
-                                onChange={(e) => setTitle(e.target.value)}
-                            />
-                            <input
-                                id="text-box"
-                                type="text"
-                                placeholder="What's on your mind?"
-                                onChange={(e) => setBody(e.target.value)}
-                            />
-                            <input
-                                type="text"
-                                placeholder="Name"
-                                onChange={(e) => setAuthor(e.target.value)}
-                            />
-                            <input
-                                type="checkbox"
-                                id="Basketball"
-                                name="Baseketball"
-                                value="Basketball"
-                            ></input>
-                            <label for="Basketball">Basketball</label>
-                            <br></br>
-                            <input
-                                type="checkbox"
-                                id="Soccer"
-                                name="Soccer"
-                                value="Soccer"
-                            ></input>
-                            <label for="Basketball">Soccer</label>
-                            <br></br>
-                        </form>
-                        <form method="POST" action={`/?_method=POST`}>
-                            <Button onClick={handleSubmit} variant="primary">
-                                Post
-                            </Button>
-                        </form>
-                    </div> */}
                 </Card.Body>
             </Card>
         </div>
