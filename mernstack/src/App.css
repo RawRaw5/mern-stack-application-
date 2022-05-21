@@ -52,16 +52,3 @@ body {
 .row #title {
 	flex: 80%;
 }
-
-/* .createPost {
-	flex: 1;
-	margin: 20px;
-}
- */
-
-.card-form {
-	display: flex;
-	flex-direction: column;
-	margin: 10px;
-	justify-items: space-between;
-}
