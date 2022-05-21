@@ -23,7 +23,8 @@ async function postData(url = "", data = {}) {
     return response.json();
 }
 
-function CreatePost() {
+function CreatePost(props) {
+    const {refresh, setRefresh} = props
     const [title, setTitle] = useState(null);
     const [body, setBody] = useState(null);
     const [author, setAuthor] = useState(null);
@@ -41,6 +42,7 @@ function CreatePost() {
             postDetails
         ).then((data) => {
             console.log(data);
+            setRefresh(true)
         });
     };
 

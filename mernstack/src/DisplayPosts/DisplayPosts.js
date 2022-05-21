@@ -7,12 +7,14 @@ import Button from "react-bootstrap/Button";
 import axios from "axios";
 import Controls from "./Controls";
 
-const DisplayPosts = () => {
+const DisplayPosts = (props) => {
+    const {refresh, setRefresh} = props
     const [data, setData] = useState([]);
     const pullData = () => {
         axios("https://mernstack-application.herokuapp.com/posts")
         .then((response) => {
             setData(response.data);
+            setRefresh(false)
             // console.log(response.data);
         })
         .catch((error) => {
@@ -20,8 +22,8 @@ const DisplayPosts = () => {
         });
     }
     useEffect(() => {
-      pullData() 
-    }, []);
+     if(refresh) pullData() 
+    }, [refresh]);
 
     return (
         <Container fluid className="p-3 my-3">
