@@ -7,7 +7,7 @@ const Controls = () => {
 
     const deletePost = async (id) => {
         try {
-            const res = await axios.delete('https://mernstack-application.herokuapp.com/posts/:id');
+            const res = await axios.delete('https://mernstack-application.herokuapp.com/posts/', {id});
             console.log("Item successfully deleted.");
         } catch (error) {
             alert(error);
