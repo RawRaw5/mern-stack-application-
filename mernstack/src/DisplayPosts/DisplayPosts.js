@@ -10,16 +10,18 @@ import "./display.css";
 
 const DisplayPosts = () => {
     const [data, setData] = useState([]);
-
-    useEffect(() => {
+    const pullData = () => {
         axios("https://mernstack-application.herokuapp.com/posts")
-            .then((response) => {
-                setData(response.data);
-                // console.log(response.data);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
+        .then((response) => {
+            setData(response.data);
+            // console.log(response.data);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    }
+    useEffect(() => {
+      pullData() 
     }, []);
 
     const handleDelete = async (id) => {
@@ -64,11 +66,7 @@ const DisplayPosts = () => {
                                     {da.author}
                                 </Card.Subtitle>
                                 <Card.Text>{da.body}</Card.Text>
-                                <Card.Text>{da._id}</Card.Text>
-                                <Button variant="danger" onClick={handleDelete}>
-                                    Delete
-                                </Button>
-                                {/* <Controls /> */}
+                                <Controls postId={da._id} pullFunction={pullData}/>
                             </Card.Body>
                         </Card>
                     </Col>
