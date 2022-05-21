@@ -15,7 +15,7 @@ function App() {
                     <Sidebar />
                 </div>
                 <Routes>
-                    <Route path='/posts' element={<Home />} />
+                    <Route path='/' element={<Home />} />
                     <Route path='/about' element={<About />} />
                 </Routes>
             </Router>
