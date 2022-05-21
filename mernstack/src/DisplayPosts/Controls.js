@@ -17,15 +17,10 @@ const Controls = (props) => {
         }
     };
 
-    const editPost = async (id) => {
+    const likePost = async (id) => {
         try {
-            const res = await axios.put('https://mernstack-application.herokuapp.com/posts/', {id}, {
-                title: "",
-                body: "",
-                author: "",
-                sport: ""
-            })
-            console.log("Item successfully updated")
+            const res = await axios.patch('https://mernstack-application.herokuapp.com/posts/' + id + '/like')
+            console.log("Item successfully liked")
         } catch (error) {
             // alert(error)
         }
@@ -34,10 +29,10 @@ const Controls = (props) => {
 
     return (
         <>
-            {/* <Button onClick={()=>deletePost(postId)} className="me-3" variant="danger">
+            <Button onClick={()=>deletePost(postId)} className="me-3" variant="danger">
                 Delete
-            </Button> */}
-            <Button>Like</Button>
+            </Button>
+            <Button onClick={()=>likePost(postId)} className='me-3'>Like</Button>
         </>
     );
 };
