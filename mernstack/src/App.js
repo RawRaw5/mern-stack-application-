@@ -13,9 +13,9 @@ function App() {
             <div>
                 <DisplayPosts />
             </div>
-            {/* <div className="createPost">
+            <div className="createPost">
                 <CreatePost />
-            </div> */}
+            </div>
         </div>
     );
 }
