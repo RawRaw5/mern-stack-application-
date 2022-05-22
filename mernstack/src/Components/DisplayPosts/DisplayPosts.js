@@ -8,21 +8,21 @@ import axios from "axios";
 import Controls from "./Controls";
 
 const DisplayPosts = (props) => {
-    const {refresh, setRefresh} = props
+    const { refresh, setRefresh } = props;
     const [data, setData] = useState([]);
     const pullData = () => {
         axios("https://mernstack-application.herokuapp.com/posts")
-        .then((response) => {
-            setData(response.data);
-            setRefresh(false)
-            // console.log(response.data);
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-    }
+            .then((response) => {
+                setData(response.data);
+                setRefresh(false);
+                // console.log(response.data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    };
     useEffect(() => {
-     if(refresh) pullData() 
+        if (refresh) pullData();
     }, [refresh]);
 
     return (
@@ -40,7 +40,10 @@ const DisplayPosts = (props) => {
                                 </Card.Subtitle>
                                 <Card.Text>{da.body}</Card.Text>
                                 <Card.Text>{da.likeCount} Likes</Card.Text>
-                                <Controls postId={da._id} pullFunction={pullData}/>
+                                <Controls
+                                    postId={da._id}
+                                    pullFunction={pullData}
+                                />
                             </Card.Body>
                         </Card>
                     </Col>
