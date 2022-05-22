@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import "./App.css";
+// import "./App.css";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
