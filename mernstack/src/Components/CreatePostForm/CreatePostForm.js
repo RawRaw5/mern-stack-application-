@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 // import "./App.css";
 import Card from "react-bootstrap/Card";
@@ -24,7 +23,7 @@ async function postData(url = "", data = {}) {
     return response.json();
 }
 
-function CreatePost(props) {
+function CreatePostForm(props) {
     const {refresh, setRefresh} = props
     const [title, setTitle] = useState(null);
     const [body, setBody] = useState(null);
@@ -112,7 +111,7 @@ function CreatePost(props) {
     );
 }
 
-export default CreatePost;
+export default CreatePostForm;
 //     const [title, setTitle] = useState(null)
 //     const [body, setBody] = useState(null)
 //     const [author, setAuthor] = useState(null)

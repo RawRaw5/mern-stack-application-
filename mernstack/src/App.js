@@ -4,7 +4,7 @@ import Sidebar from "./Components/navbar/Sidebar";
 import { BrowserRouter as Router, Link, Routes, Route } from 'react-router-dom'
 import Home from "./Components/Home/Home"
 import About from "./Components/About/About"
-import CreatePost from "./Components/CreatePostForm/CreatePost";
+import CreatePost from "./Components/CreatePostForm/CreatePostForm";
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
                 <div className="sideBar">
                     <Sidebar />
                 </div>
-                <CreatePost />
+                    <CreatePost />
                 <Routes>
                     <Route path='/' element={<Home />} />
                     <Route path='/about' element={<About />} />
