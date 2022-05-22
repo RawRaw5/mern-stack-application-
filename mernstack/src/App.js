@@ -6,27 +6,45 @@ import Home from "./Components/Home/Home";
 import About from "./Components/About/About";
 import CreatePostForm from "./Components/CreatePostForm/CreatePostForm";
 import Button from "react-bootstrap/Button";
+import {
+    CssBaseline,
+    ThemeProvider,
+    Container,
+    createTheme,
+} from "@mui/material";
+import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
+
+const theme = createTheme("");
 
 function App() {
     const [refresh, setRefresh] = useState(true);
 
     return (
-        <div className="App">
+        // <div className="App">
+        // </div>
+        <>
             <Router>
+                <ThemeProvider theme={theme}>
+                    <CssBaseline />
+                    <Header />
+                    <Container maxWidth='lg'>
+                        {/* <Button href="/new-post">New post</Button>   */}
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/about" element={<About />} />
+                            {/* <Route path="/new-post" element={<CreatePostForm />} /> */}
+                        </Routes>
+                    </Container>
+                    <Footer />
+                </ThemeProvider>
                 <div className="sideBar">
-                    <Sidebar />
-                    <Button href="/new-post">
-                        New post
-                    </Button>
+                    {/* <Sidebar /> */}
+                    {/* <Header /> */}
                 </div>
                 {/* <CreatePostForm /> */}
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path='/new-post' element={<CreatePostForm />} />
-                </Routes>
             </Router>
-        </div>
+        </>
     );
 }
 

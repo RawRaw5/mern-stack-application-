@@ -5,7 +5,8 @@ export default function Home() {
     const [refresh, setRefresh] = useState(true);
     return (
         <>
-            <div style={{ width: "40%" }}>
+            {/* <div style={{ width: "40%" }}> */}
+            <div>
                 <DisplayPosts refresh={refresh} setRefresh={setRefresh} />
             </div>
             {/* <CreatePost refresh={refresh} setRefresh={setRefresh} /> */}
