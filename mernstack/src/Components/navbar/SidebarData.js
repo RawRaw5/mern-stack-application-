@@ -24,5 +24,10 @@ export const SidebarData = [
         title: "About",
         icon: <InfoIcon />,
         link: "/about"
-    }
+    },
+    // {
+    //     title: "New Post", 
+    //     icon: "", 
+    //     link: "/new-post"
+    // }
 ]
