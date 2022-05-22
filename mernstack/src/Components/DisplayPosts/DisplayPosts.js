@@ -29,7 +29,7 @@ const DisplayPosts = (props) => {
 
     return (
         <>
-            <Grid container spacing={5} sx={{ mt: 3 }}>
+            <Grid container spacing={5}>
                 <Post refresh={refresh} setRefresh={setRefresh} />
             </Grid>
         </>

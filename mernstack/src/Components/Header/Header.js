@@ -103,7 +103,7 @@ const Header = () => {
                     open={open}
                     sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
                 >
-                    <Toolbar>
+                    <Toolbar sx={{ justifyContent:"space-between" }}>
                         {/* <IconButton
                             color="inherit"
                             aria-label="open drawer"
@@ -116,6 +116,9 @@ const Header = () => {
                         <Typography variant="h6" noWrap component="div">
                             SportBlog
                         </Typography>
+                        <Button variant="secondary" size="small" align="right">
+                            New Post
+                        </Button>
                         {/* {pages.map((page) => (
                             <Link
                                 color="inherit"

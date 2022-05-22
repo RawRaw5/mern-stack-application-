@@ -11,6 +11,7 @@ import {
     ThemeProvider,
     Container,
     createTheme,
+    Box,
 } from "@mui/material";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
@@ -28,7 +29,18 @@ function App() {
                 <ThemeProvider theme={theme}>
                     <CssBaseline />
                     <Header />
-                    <Container maxWidth='lg'>
+                    <Container maxWidth="lg">
+                        <Box
+                            component="div"
+                            sx={{
+                                color: "primary",
+                                // marginTop: "5rem",
+                                justifyContent: "center",
+                                marginBottom: "3rem"
+                            }}
+                        >
+                        <Container sx={{ height: '50px'}}/>
+                        </Box>
                         {/* <Button href="/new-post">New post</Button>   */}
                         <Routes>
                             <Route path="/" element={<Home />} />

@@ -30,6 +30,7 @@ const Post = (props) => {
 
     return (
         <>
+        
             {data.map((dat) => (
                 <Grid item xs={12} md={12}>
                     <CardActionArea component="a" href={`/${dat._id}`}>

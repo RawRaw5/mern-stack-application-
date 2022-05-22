@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import Container from "@mui/material/Container";
 
 const bull = (
     <Box
@@ -43,46 +44,48 @@ const creators = [
 export default function About() {
     return (
         <>
-            {creators.map((creator) => (
-                <Card sx={{ minWidth: 275 }}>
-                    <CardContent>
-                        {/* <Typography
+            <Container sx={{ marginTop: "rem"}}>
+                {creators.map((creator) => (
+                    <Card sx={{ minWidth: 275, marginBottom: '3rem'}}>
+                        <CardContent>
+                            {/* <Typography
                             sx={{ fontSize: 14 }}
                             color="text.secondary"
                             gutterBottom
                         >
                             Word of the Day
                         </Typography> */}
-                        <Typography variant="h5" component="div">
-                            {creator.name}
-                        </Typography>
-                        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                            adjective
-                        </Typography>
-                        <Typography variant="body2">
-                            well meaning and kindly.
-                            <br />
-                            {'"a benevolent smile"'}
-                        </Typography>
-                    </CardContent>
-                    <CardActions>
-                        <Button
-                            target="_blank"
-                            href={creator.github}
-                            size="small"
-                        >
-                            <GitHubIcon />
-                        </Button>
-                        <Button
-                            target="_blank"
-                            href={creator.linkedin}
-                            size="small"
-                        >
-                            <LinkedInIcon />
-                        </Button>
-                    </CardActions>
-                </Card>
-            ))}
+                            <Typography variant="h5" component="div">
+                                {creator.name}
+                            </Typography>
+                            <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                                adjective
+                            </Typography>
+                            <Typography variant="body2">
+                                well meaning and kindly.
+                                <br />
+                                {'"a benevolent smile"'}
+                            </Typography>
+                        </CardContent>
+                        <CardActions>
+                            <Button
+                                target="_blank"
+                                href={creator.github}
+                                size="small"
+                            >
+                                <GitHubIcon />
+                            </Button>
+                            <Button
+                                target="_blank"
+                                href={creator.linkedin}
+                                size="small"
+                            >
+                                <LinkedInIcon />
+                            </Button>
+                        </CardActions>
+                    </Card>
+                ))}
+            </Container>
         </>
     );
 }
